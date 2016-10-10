@@ -2,36 +2,36 @@
 
 // Add scripts and stylesheets
 function startwordpress_scripts() {
-	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.6' );
-	wp_enqueue_style( 'blog', get_template_directory_uri() . '/css/blog.css' );
-	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '3.3.6', true );
+    wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.6' );
+    wp_enqueue_style( 'blog', get_template_directory_uri() . '/css/blog.css' );
+    wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '3.3.6', true );
 }
 
 add_action( 'wp_enqueue_scripts', 'startwordpress_scripts' );
 
 // Add Google Fonts
 function startwordpress_google_fonts() {
-				wp_register_style('OpenSans', '//fonts.googleapis.com/css?family=Open+Sans:400,600,700,800');
-				wp_enqueue_style( 'OpenSans');
-		}
+                wp_register_style('OpenSans', '//fonts.googleapis.com/css?family=Chela+One|Open+Sans:400,600,700,800');
+                wp_enqueue_style( 'OpenSans');
+        }
 
 add_action('wp_print_styles', 'startwordpress_google_fonts');
 
 // WordPress Titles
 function startwordpress_wp_title( $title, $sep ) {
-	global $paged, $page;
-	if ( is_feed() ) {
-		return $title;
-	} 
-	// Add the site name.
-	$title .= get_bloginfo( 'name' );
-	// Add the site description for the home/front page.
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) ) {
-		$title = "$title $sep $site_description";
-	}
-	return $title;
-} 
+    global $paged, $page;
+    if ( is_feed() ) {
+        return $title;
+    }
+    // Add the site name.
+    $title .= get_bloginfo( 'name' );
+    // Add the site description for the home/front page.
+    $site_description = get_bloginfo( 'description', 'display' );
+    if ( $site_description && ( is_home() || is_front_page() ) ) {
+        $title = "$title $sep $site_description";
+    }
+    return $title;
+}
 add_filter( 'wp_title', 'startwordpress_wp_title', 10, 2 );
 
 // Custom settings
@@ -47,8 +47,8 @@ function custom_settings_page() { ?>
 		<form method="post" action="options.php">
 			<?php
            settings_fields('section');
-           do_settings_sections('theme-options');      
-           submit_button(); 
+           do_settings_sections('theme-options');
+           submit_button();
        ?>
 		</form>
 	</div>
@@ -67,8 +67,8 @@ function custom_settings_page_setup() {
   add_settings_section('section', 'All Settings', null, 'theme-options');
   add_settings_field('twitter', 'Twitter URL', 'setting_twitter', 'theme-options', 'section');
   add_settings_field('github', 'GitHub URL', 'setting_github', 'theme-options', 'section');
-  
-	register_setting('section', 'twitter');
+
+  register_setting('section', 'twitter');
   register_setting('section', 'github');
 }
 add_action( 'admin_init', 'custom_settings_page_setup' );
@@ -78,20 +78,20 @@ add_theme_support( 'post-thumbnails' );
 
 // Custom Post Type
 function create_my_custom_post() {
-	register_post_type('my-custom-post',
-			array(
-			'labels' => array(
-					'name' => __('My Custom Post'),
-					'singular_name' => __('My Custom Post'),
-			),
-			'public' => true,
-			'has_archive' => true,
-			'supports' => array(
-					'title',
-					'editor',
-					'thumbnail',
-				  'custom-fields'
-			)
-	));
+    register_post_type('my-custom-post',
+            array(
+            'labels' => array(
+                    'name' => __('My Custom Post'),
+                    'singular_name' => __('My Custom Post'),
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'supports' => array(
+                    'title',
+                    'editor',
+                    'thumbnail',
+                  'custom-fields'
+            )
+    ));
 }
-add_action('init', 'create_my_custom_post'); 
+add_action('init', 'create_my_custom_post');
