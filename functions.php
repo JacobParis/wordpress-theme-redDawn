@@ -2,8 +2,7 @@
 
 // Add scripts and stylesheets
 function startwordpress_scripts() {
-    wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.6' );
-    wp_enqueue_style( 'blog', get_template_directory_uri() . '/css/blog.css' );
+    wp_enqueue_style( 'blog', get_template_directory_uri() . '/css/blog.less' );
     wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '3.3.6', true );
 }
 
@@ -95,3 +94,21 @@ function create_my_custom_post() {
     ));
 }
 add_action('init', 'create_my_custom_post');
+
+/**
+ * Register our sidebars and widgetized areas.
+ *
+ */
+function arphabet_widgets_init() {
+
+    register_sidebar( array(
+        'name'          => 'Home Sidebar',
+        'id'            => 'home_1',
+        'before_widget' => '<div class="%2$s">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h4>',
+        'after_title'   => '</h4>',
+    ) );
+
+}
+add_action( 'widgets_init', 'arphabet_widgets_init' );

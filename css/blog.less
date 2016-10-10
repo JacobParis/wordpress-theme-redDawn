@@ -1,3 +1,5 @@
+@import "bootstrap/bootstrap.less";
+
 /*
  * Globals
  */
@@ -126,6 +128,17 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 
 
 /* Sidebar modules for boxing content */
+.blog-sidebar-overlay {
+    /* content: ''; */
+    background: linear-gradient(#fff, #666);
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    -webkit-clip-path: polygon(65% 0%, 100% 0%, 100% 100%, 60% 100%);
+    opacity: 0.4;
+}
 
 .sidebar-module {
     padding: 15px;
@@ -143,7 +156,16 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     margin-bottom: 0;
 }
 
+/* Widgets that can have siblings */
+.widget_archive {
+   .make-xs-column(4);
+   .make-sm-column(6);
+ }
 
+/* Widgets that get their own row */
+.widget_text {
+   .make-xs-column(12);
+}
 /* Pagination */
 
 .pager {
