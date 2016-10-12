@@ -1,5 +1,4 @@
 <?php
-require_once( 'wp-less/wp-less.php' );
 // Add scripts and stylesheets
 function startwordpress_scripts() {
     wp_enqueue_style( 'blog', get_template_directory_uri() . '/css/blog.less' );
@@ -112,3 +111,4 @@ function arphabet_widgets_init() {
 
 }
 add_action( 'widgets_init', 'arphabet_widgets_init' );
+?>
