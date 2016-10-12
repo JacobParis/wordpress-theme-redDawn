@@ -1,7 +1,8 @@
 <?php
 // Add scripts and stylesheets
 function startwordpress_scripts() {
-    wp_enqueue_style( 'blog', get_template_directory_uri() . '/css/blog.less' );
+    wp_enqueue_style( 'blogcss', get_template_directory_uri() . '/css/blog.css' );
+    wp_enqueue_style( 'blogless', get_template_directory_uri() . '/css/blog.less' );
     wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '3.3.6', true );
 }
 
