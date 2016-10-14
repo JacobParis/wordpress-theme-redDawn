@@ -127,10 +127,16 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     line-height: 1.5;
 }
 
+.blog-sidebar {
 
+    padding: 10px;
+    background: #C2C2C2;
+    @media(min-width:768px){
+      background: none;
+    }
+}
 /* Sidebar modules for boxing content */
 .blog-sidebar-overlay {
-    /* content: ''; */
     background: linear-gradient(#fff, #666);
     position: absolute;
     right: 0;
@@ -139,6 +145,14 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     bottom: 0;
     -webkit-clip-path: polygon(65% 0%, 100% 0%, 100% 100%, 60% 100%);
     opacity: 0.4;
+}
+
+.blog-sidebar-overlay-xs {
+    background: #666;
+    -webkit-clip-path: polygon(0% 100%, 100% 0%, 100% 100%, 0% 100%);
+    opacity: 0.4;
+    width: 100%;
+    height: 40px;
 }
 
 .sidebar-module {
@@ -209,12 +223,13 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
  */
 
 .blog-footer {
-    padding: 40px 0;
+    padding: 20px 0;
     color: #999;
     text-align: center;
-    background-color: #f9f9f9;
-    border-top: 1px solid #e5e5e5;
-    margin-top: 2rem; //Pads the top from the content
+    background: #C2C2C2;
+    @media(min-width:768px){
+      background: none;
+    }
 }
 
 .blog-footer p:last-child {
