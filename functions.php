@@ -10,7 +10,7 @@ add_action( 'wp_enqueue_scripts', 'startwordpress_scripts' );
 
 // Add Google Fonts
 function startwordpress_google_fonts() {
-                wp_register_style('OpenSans', '//fonts.googleapis.com/css?family=Chela+One|Open+Sans:400,600,700,800');
+                wp_register_style('OpenSans', '//fonts.googleapis.com/css?family=Chela+One|Open+Sans|Roboto:400,500,600,700,800');
                 wp_enqueue_style( 'OpenSans');
         }
 
