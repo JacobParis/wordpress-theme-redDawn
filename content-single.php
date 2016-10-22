@@ -10,4 +10,5 @@
     do_action('display_featured_post', $post->ID);
     ?>
 	</div>
+	
 </div><!-- /.blog-post -->
