@@ -256,67 +256,40 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 }
 
 /** REDDIT **/
-
+@primary: #F44336; //Material design RED
+@secondary: #D32F2F; //Material design DARK RED
+@shadow: #000066;
 #reddit {
-  margin: auto -16px;
-  display: block;
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Chrome/Safari/Opera */
-  -khtml-user-select: none;    /* Konqueror */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* Internet Explorer/Edge */
-  user-select: none;
-  position:relative;
-  &:hover {
-    text-decoration: none;
-    &::after {
-    content: 'Discuss on Reddit';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 16px;
-    bottom: 0;
-    font-size: 8vw;
-    display: block;
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    text-align: center;
-    background: rgba(0,0,0,0.5);
-    color: white;
-    }
-    .r-slant {
-      background: rgb(123,34,27) !important;
+  margin: 0 -16px; // Wider to touch screen edges
+  &:hover .r-header::before {
+    background: rgb(123,34,27) !important;
+  }
+  .r-header {
+    background: @primary;
+    &::before {
+      content: '';
+      height: 16px;
+      -webkit-clip-path: polygon(0% 100%, 100% 0%, 100% 100%, 0% 100%);
+      background: @primary;
+      position: absolute;
+      top: 0;
+      transform: translateY(-100%);
+      width: 100%;
     }
   }
   .r-op {
     color: white;
-    .r-slant {
-      height: 16px;
-      -webkit-clip-path: polygon(0% 100%, 100% 0%, 100% 100%, 0% 100%);
-      background: #F44336;
-    }
-    .r-header {
-    padding: 4px;
-    background: #F44336;
-    }
     .r-body {
-      background: #F44336;
-      border-bottom: 1px solid rgba(0,0,102,0.2);
+      background: @primary;
+      border-bottom: 1px solid fadeout(@shadow, 80%); //Transparent blue shadow
     }
   }
   .r-comment {
-    padding: 8px;
-    background: #D32F2F;
+    background: @secondary;
     color:white;
-    border-bottom: 1px solid rgba(0,0,102,0.1);
+    border-bottom: 1px solid fadeout(@shadow, 90%);
   }
   .r-meta {
-    font-size: 80%;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: rgba(255, 255,255, 0.8);
-  }
-  .r-body {
-    padding: 8px;
+    color: fadeout(white, 10%); //Transparent white
   }
 }
