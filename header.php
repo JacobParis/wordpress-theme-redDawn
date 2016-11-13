@@ -18,7 +18,7 @@
 <body>
 	<div class="blog-header">
 		<nav class="blog-nav">
-			<?php wp_list_pages( '&title_li='); ?>
+			<!-- ?php wp_list_pages( '&title_li='); ? -->
 		</nav>
 		<h1 class="blog-title"><a href="<?php bloginfo('wpurl');?>"><?php echo get_bloginfo( 'name' ); ?></a></h1>
 		<p class="lead blog-description">
